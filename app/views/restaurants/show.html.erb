@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Restaurant #<%= @restaurant.id %></h1>
+  <h1> <%= @restaurant.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
@@ -11,5 +11,8 @@
 
   <dt>Description</dt>
   <dd><%= @restaurant.description %></dd>
+
+  <dt>List of Dishes</dt>
+  <dd><%= @dishes.name%></dd>
 
 </dl>

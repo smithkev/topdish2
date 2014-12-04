@@ -19,9 +19,9 @@
   <tbody>
     <% @dishes.each do |dish| %>
       <tr>
-        <td><%= dish.category_id %></td>
+        <td><%= dish.category.name %></td>
         <td><%= dish.name %></td>
-        <td><%= dish.restaurant_id %></td>
+        <td><%= dish.restaurant.name %></td>
         <td>
           <a href="/dishes/<%= dish.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>
