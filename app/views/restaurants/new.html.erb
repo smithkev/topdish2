@@ -30,7 +30,7 @@
           Neighborhood
         </label>
         <div class="col-sm-10">
-          <input type="text" id="neighborhood" name="neighborhood" placeholder="Neighborhood" class="form-control" value="<%= @restaurant.neighborhood %>">
+        <%= select_tag :neighborhood, options_for_select(["Bucktown", "Chinatown", "Gold Coast", "Goose Island", "Lakeview", "Lincoln Park", "Logan Square", "Old Town", "Pilsen", "River North", "River West", "Roscoe Village", "The Loop", "The West Loop", "Ukranian Village", "Wicker Park", "Wrigleyville"], @restaurant.neighborhood) %>
         </div>
       </div>
 
