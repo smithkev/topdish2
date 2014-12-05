@@ -15,14 +15,8 @@
   <div class="col-md-12">
     <form action="/create_meal" class="form-horizontal">
       <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="col-sm-2 control-label">
-          User
-        </label>
-        <div class="col-sm-10">
-          <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @meal.user_id %>">
-        </div>
-      </div>
+          <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>"
+
 
       <!-- Label and input for dish_id -->
       <div class="form-group">
@@ -30,7 +24,7 @@
           Dish
         </label>
         <div class="col-sm-10">
-          <input type="text" id="dish_id" name="dish_id" placeholder="Dish" class="form-control" value="<%= @meal.dish_id %>">
+          <%= select_tag(:dish_id, options_from_collection_for_select(Dish.all, :id, :name, @meal.dish_id), :class => "form-control") %>
         </div>
       </div>
 
@@ -40,7 +34,7 @@
           Rating
         </label>
         <div class="col-sm-10">
-          <input type="text" id="rating" name="rating" placeholder="Rating" class="form-control" value="<%= @meal.rating %>">
+          <input type="number" min="1" max="5" id="rating" name="rating" placeholder="Rating" class="form-control" value="<%= @meal.rating %>">
         </div>
       </div>
 

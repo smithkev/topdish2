@@ -4,15 +4,20 @@
 
 <dl class="dl-horizontal">
   <dt>User</dt>
-  <dd><%= @meal.user_id %></dd>
+  <dd><%= @meal.user.email %></dd>
+
+  <dt>Restaurant</dt>
+  <a href="/restaurants/<%= @meal.dish.restaurant.id %>">
+  <dd><%= @meal.dish.restaurant.name %></dd>
+  </a>  
 
   <dt>Dish</dt>
-  <dd><%= @meal.dish_id %></dd>
+  <dd><%= @meal.dish.name %></dd>
 
   <dt>Rating</dt>
   <dd><%= @meal.rating %></dd>
 
   <dt>Image</dt>
-  <dd><%= @meal.image %></dd>
+  <dd><img src="<%= @meal.image %>" height="200" width="200"></dd>
 
 </dl>

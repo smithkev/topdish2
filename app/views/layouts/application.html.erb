@@ -42,11 +42,25 @@
         <li><a href="/restaurants">Restaurants</a></li>
         <li><a href="/dishes">Dishes</a></li>
         <li><a href="/meals">Meals</a></li>
+                <% if current_user.present? %>
+
+        <% if current_user.email == 'admin@admin.com' %>
+        <li><a href="/categories">Categories</a></li>
+        <% end %>
+                <% end %>
+
+                <% if current_user.present? %>
+
+        <% if current_user.email == 'admin@admin.com' %>
+        <li><a href="/users">Users</a></li>
+        <% end %>
+                <% end %>
+
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <% if 1 > 2 %>
-          <li><a href="/users/edit">Oscar the Grouch</a></li>
+        <% if current_user.present? %>
+          <li><a href="/users/edit">Edit Profile</a></li>
           <li><a href="/users/sign_out" data-method="delete">Sign out</a></li>
         <% else %>
           <li><a href="/users/sign_up">Sign up</a></li>

@@ -8,6 +8,7 @@
   <thead>
     <tr>
       <th>User</th>
+      <th>Restaurant</th>  
       <th>Dish</th>
       <th>Rating</th>
       <th>Image</th>
@@ -20,10 +21,11 @@
   <tbody>
     <% @meals.each do |meal| %>
       <tr>
-        <td><%= meal.user_id %></td>
-        <td><%= meal.dish_id %></td>
+        <td><%= meal.user.email %></td>
+        <td><%= meal.dish.restaurant.name %></td>  
+        <td><%= meal.dish.name %></td>
         <td><%= meal.rating %></td>
-        <td><%= meal.image %></td>
+        <td><img src="<%= meal.image %>" height="200" width="200"></td>
         <td>
           <a href="/meals/<%= meal.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>
@@ -35,8 +37,13 @@
           </a>
         </td>
         <td>
+          <% if current_user.present? %>
+          <% if (current_user == meal.user || current_user.email == 'admin@admin.com') %>
+
+
           <a href="/delete_meal/<%= meal.id %>" class="btn btn-danger">
             <i class="fa fa-trash-o"></i>
+            <% end %><% end %>
           </a>
         </td>
       </tr>
