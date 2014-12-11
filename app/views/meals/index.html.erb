@@ -32,14 +32,17 @@
           </a>
         </td>
         <td>
+          <% if current_user.present? %>
+          <% if (current_user == meal.user || current_user.email == 'admin@admin.com') %>
+
           <a href="/meals/<%= meal.id %>/edit" class="btn btn-warning">
             <i class="fa fa-edit"></i>
+          <% end %><% end %>
           </a>
         </td>
         <td>
           <% if current_user.present? %>
           <% if (current_user == meal.user || current_user.email == 'admin@admin.com') %>
-
 
           <a href="/delete_meal/<%= meal.id %>" class="btn btn-danger">
             <i class="fa fa-trash-o"></i>
