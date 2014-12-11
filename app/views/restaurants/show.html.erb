@@ -12,4 +12,12 @@
   <dt>Description</dt>
   <dd><%= @restaurant.description %></dd>
 
+  <dt>List of Dishes</dt>
+  <dd>
+    <% @restaurant.dishes.each do |dish| %>
+      <p><%= dish.name %></p>
+    <% end %>
+  </dd>
+
 </dl>
+
